@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { AppProvider } from "@/providers/app-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { cormorantGaramond, inter, quantify } from "@/lib/fonts";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: {
@@ -16,9 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={cn(
+        cormorantGaramond.variable,
+        inter.variable,
+        quantify.variable,
+        "font-sans",
+        geist.variable,
+      )}
+    >
       <body>
-        <AppProvider>{children}</AppProvider>
+        <TooltipProvider>
+          <AppProvider>{children}</AppProvider>
+        </TooltipProvider>
       </body>
     </html>
   );
