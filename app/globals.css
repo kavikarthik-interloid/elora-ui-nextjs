@@ -4,10 +4,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f6f2ec;
+    --foreground: #222222;
+    --primary: #af7d28;
+    --secondary: #61605f;
+    --card: #505a4a;
+    --border: #e8e1d6;
+    --line: #e6e6e6;
+    --secondary-background: #1c1c1c;
+    --sheet-background: #ECE9E3;
+  }
+}
 :root {
   --background: oklch(96.258% 0.00896 78.133);
   --foreground: oklch(25.197% 0.00003 271.152);
-  --secondary-background: oklch(25.197% 0.00003 271.152);
+  --secondary-background: oklch(22.645% 0.00003 271.152);
   --primary: oklch(62.515% 0.11553 76.305);
   --secondary: oklch(49.319% 0.00198 67.139);
   --card: oklch(45.384% 0.02832 133.796);
@@ -39,6 +52,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --sheet-background: #F4F1EC;
 }
 
 @theme inline {
@@ -51,6 +65,7 @@
   --color-card: var(--card);
   --color-border: var(--border);
   --color-line: var(--line);
+  --color-sheet-background: var(--sheet-background);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-quantify: var(--font-quantify-file);
@@ -91,17 +106,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f6f2ec;
-    --foreground: #222222;
-    --primary: #af7d28;
-    --secondary: #61605f;
-    --card: #505a4a;
-    --border: #e8e1d6;
-    --line: #e6e6e6;
-  }
-}
 html {
   width: 100%;
   height: 100%;
@@ -231,12 +235,12 @@ input:-webkit-autofill:focus {
   }
 
   50% {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 }
 
 .shop-item-float {
-  animation: shop-item-float 2.5s ease-in-out infinite;
+  animation: shop-item-float 3s ease-in-out infinite;
 }
 .shop-menu-panel a:nth-child(2) .shop-item-float {
   animation-delay: 120ms;
@@ -389,4 +393,29 @@ input:-webkit-autofill:focus {
     transform: translateY(0);
     filter: blur(0);
   }
+}
+
+.corner-frame::before,
+.corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+}
+
+.corner-frame::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.5);
+  border-left: 1px solid rgb(255 255 255 / 0.5);
+  border-top-left-radius: 10px;
+}
+
+.corner-frame::after {
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid rgb(255 255 255 / 0.5);
+  border-bottom: 1px solid rgb(255 255 255 / 0.5);
+  border-bottom-right-radius: 10px;
 }

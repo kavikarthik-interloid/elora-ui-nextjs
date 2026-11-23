@@ -29,9 +29,12 @@ function LinkGroup({ title, links }: { title: string; links: string[] }) {
           <a
             key={link}
             href="#"
-            className="transition-colors hover:text-primary"
+            className="group inline-flex w-fit items-center gap-2 text-white/90 transition-colors hover:text-primary duration-300 ease-out"
           >
-            {link}
+            <span className="underline-offset-4 group-hover:underline">
+              {link}
+            </span>
+            <MoveRightIcon className="pointer-events-none opacity-0 group-hover:rotate-320 group-hover:opacity-100" />
           </a>
         ))}
       </div>
@@ -41,7 +44,7 @@ function LinkGroup({ title, links }: { title: string; links: string[] }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary-background text-white">
+    <footer className="bg-foreground text-white">
       <section className="border-b border-white/10 px-5 py-8 sm:px-8 sm:py-10 lg:px-15 lg:py-12 xl:px-22">
         <div className="flex flex-col gap-8 w-full justify-between sm:gap-10 lg:flex-row lg:gap-16">
           <div>
@@ -97,13 +100,22 @@ export default function Footer() {
       <section className="flex flex-col gap-5 border-t border-white/10 px-5 py-5 font-inter text-xs xl:text-base text-white/90 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-15">
         <span>© 2026 Elora Health Inc. All rights reserved.</span>
         <div className="flex flex-wrap gap-x-6 gap-y-3">
-          <a href="#" className="hover:text-primary">
+          <a
+            href="#"
+            className="hover:text-primary underline-offset-4 hover:underline group-hover:underline transition-colors duration-300 ease-out"
+          >
             Privacy Policy
           </a>
-          <a href="#" className="hover:text-primary">
+          <a
+            href="#"
+            className="hover:text-primary underline-offset-4 hover:underline group-hover:underline transition-colors duration-300 ease-out"
+          >
             Terms &amp; Conditions
           </a>
-          <a href="#" className="hover:text-primary">
+          <a
+            href="#"
+            className="hover:text-primary underline-offset-4 hover:underline group-hover:underline transition-colors duration-300 ease-out"
+          >
             Cookies
           </a>
         </div>

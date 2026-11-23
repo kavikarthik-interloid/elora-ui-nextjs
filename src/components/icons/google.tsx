@@ -1,6 +1,6 @@
 export default function GoogleIcon() {
   return (
-    <div className="size-5 flex items-center">
+    <div className="size-4.75 flex items-center">
     <svg
       className="size-full"
       xmlns="http://www.w3.org/2000/svg"

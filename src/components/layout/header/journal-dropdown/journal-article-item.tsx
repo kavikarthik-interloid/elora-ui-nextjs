@@ -32,7 +32,6 @@ export function JournalArticleItem({
         <span className="font-cormorant text-[22px] leading-tight text-foreground transition-colors group-hover:text-primary">
           {title}
         </span>
-
         <span className="font-inter text-sm text-muted-foreground">
           {readTime}
         </span>

@@ -1,10 +1,12 @@
 "use client";
 import AppleIcon from "@/components/icons/apple";
 import EyeIcon from "@/components/icons/eye";
+import EyeOffIcon from "@/components/icons/eye-off";
 import GoogleIcon from "@/components/icons/google";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -12,6 +14,7 @@ export default function LoginForm() {
     event.preventDefault();
     router.push("/home-page");
   };
+  const [showPassword, setShowPassword] = useState<boolean | null>(false);
   return (
     <section className="flex w-full items-center justify-center py-6 sm:py-8 lg:py-10">
       <div className="flex h-fit w-full max-w-2xl flex-col rounded-3xl border border-white px-5 py-6 shadow-[0_0_20px_0_#0000000D] sm:px-10 sm:py-10 md:px-15 xl:px-25">
@@ -50,7 +53,7 @@ export default function LoginForm() {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder=" "
                 autoComplete="new-password"
                 className="peer w-full border-b border-border bg-transparent px-0 py-1 text-lg md:text-xl leading-normal text-secondary outline-none focus:border-primary"
@@ -63,9 +66,11 @@ export default function LoginForm() {
               </label>
               <Button
                 aria-label="Toggle password visibility"
-                className="absolute right-0 top-1/2 bg-transparent hover:bg-transparent -translate-y-1/2 p-1 text-secondary"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-0 top-0 bg-transparent hover:bg-transparent transition-none focus:transition-none  p-1 text-secondary"
               >
-                <EyeIcon />
+                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
               </Button>
             </div>
             <div className="flex justify-end ">

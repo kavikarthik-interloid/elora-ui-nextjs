@@ -1,11 +1,20 @@
-export default function UserIcon() {
+import { cn } from "cn";
+
+interface UserIconProps {
+  className?: string;
+}
+
+export default function UserIcon({ className }: UserIconProps) {
   return (
-    <div className="hidden lg:flex lg:size-4.25 xl:size-6.25 items-center hover:text-primary cursor-pointer">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 25 25"
-        fill="none"
-      >
+    <div
+      className={
+        (cn(
+          "hidden lg:flex lg:size-4.25 xl:size-6.25 items-center hover:text-primary cursor-pointer",
+        ),
+        className)
+      }
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="none">
         <path
           d="M16.2863 6.10604C16.2863 8.35432 14.4637 10.1769 12.2154 10.1769C9.96713 10.1769 8.14453 8.35432 8.14453 6.10604C8.14453 3.85775 9.96713 2.03516 12.2154 2.03516C14.4637 2.03516 16.2863 3.85775 16.2863 6.10604Z"
           strokeWidth="2.15517"

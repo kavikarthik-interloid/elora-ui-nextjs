@@ -1,18 +1,14 @@
-import SearchIcon from "../../icons/search";
 import UserIcon from "../../icons/user";
 import CartIcon from "../../icons/cart";
-import MenuIcon from "../../icons/menu";
 import Link from "next/link";
 import { quantify } from "@/lib/fonts";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-} from "../../ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList } from "../../ui/navigation-menu";
 import { ShopMenu } from "./shop-dropdown/shop-menu";
 import { ScienceMenu } from "./science-dropdown/science-menu";
 import { JournalMenu } from "./journal-dropdown/journey-menu";
-
+import { MobileNavigation } from "../mobile-navigation/mobile-navigation";
+import SearchPanel from "./search-panel";
 
 export async function Header() {
   return (
@@ -20,7 +16,7 @@ export async function Header() {
       <div className="fixed left-1/2 top-3 z-50 h-20 w-full max-w-[1555px] -translate-x-1/2 px-4 sm:px-5 xl:top-6 lg:px-6">
         <div className="flex justify-between items-center p-5 h-10.25 lg:h-16 bg-white rounded-[250px] lg:px-10">
           <div className="flex items-center gap-3">
-            <MenuIcon />
+            <MobileNavigation />
             <span
               className={`${quantify.className} text-[26px] xl:text-[40px] text-primary`}
             >
@@ -50,19 +46,8 @@ export async function Header() {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div className="flex gap-4.25 lg:gap-3.75 items-center">
-            <Tooltip>
-              <TooltipTrigger aria-label="Search">
-                <SearchIcon />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                sideOffset={8}
-                className="rounded-[14px] bg-[#222222] px-5 py-2 text-lg text-white"
-              >
-                Search
-              </TooltipContent>
-            </Tooltip>
+          <div className="flex gap-2 lg:gap-3.75 items-center">
+            <SearchPanel />
             <Tooltip>
               <TooltipTrigger aria-label="Account">
                 <UserIcon />
@@ -70,7 +55,7 @@ export async function Header() {
               <TooltipContent
                 side="bottom"
                 sideOffset={8}
-                className="rounded-[14px] bg-[#222222] px-5 py-2 text-lg text-white"
+                className="rounded-[14px] bg-secondary px-5 py-2 text-lg text-white"
               >
                 Account
               </TooltipContent>
@@ -82,7 +67,7 @@ export async function Header() {
               <TooltipContent
                 side="bottom"
                 sideOffset={8}
-                className="rounded-[14px] bg-[#222222] px-5 py-2 text-lg text-white"
+                className="rounded-[14px] bg-secondary px-5 py-2 text-lg text-white"
               >
                 Card
               </TooltipContent>
