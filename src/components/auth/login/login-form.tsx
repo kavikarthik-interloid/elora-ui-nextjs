@@ -1,10 +1,17 @@
+"use client";
 import AppleIcon from "@/components/icons/apple";
 import EyeIcon from "@/components/icons/eye";
 import GoogleIcon from "@/components/icons/google";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+  const router = useRouter();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push("/home-page");
+  };
   return (
     <section className="flex w-full items-center justify-center py-6 sm:py-8 lg:py-10">
       <div className="flex h-fit w-full max-w-2xl flex-col rounded-3xl border border-white px-5 py-6 shadow-[0_0_20px_0_#0000000D] sm:px-10 sm:py-10 md:px-15 xl:px-25">
@@ -16,7 +23,12 @@ export default function LoginForm() {
             Log in to manage your protocol and subscriptions.
           </p>
         </div>
-        <form className="mt-15 flex flex-col" autoComplete="off" noValidate>
+        <form
+          className="mt-15 flex flex-col"
+          autoComplete="off"
+          noValidate
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-6.5">
             <div className="relative font-cormorant">
               <input
@@ -120,7 +132,7 @@ export default function LoginForm() {
         <div className="pt-11.5 flex flex-wrap justify-center gap-2 text-center text-sm xl:text-lg">
           <span className="text-secondary"> New to Elora?</span>
           <Link href="/register" className="text-primary animated-underline">
-             Begin your journey
+            Begin your journey
           </Link>
         </div>
       </div>
