@@ -4,7 +4,7 @@ import HeroSection from "./hero-section";
 export default function Home() {
   return (
     <main>
-      <Header />
+      <Header overlay />
       <HeroSection />
     </main>
   );

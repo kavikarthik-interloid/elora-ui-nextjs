@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import heroImage from "@/assets/Gemini_Generated_Image_ixia48ixia48ixia 1.svg";
+import heroImage from "@/assets/image1.png";
 import MoveRightIcon from "../icons/move-right";
 import Sparkles from "../icons/sparkles";
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate min-h-full overflow-hidden bg-[#302b24] text-white">
+    <section className="relative isolate mt-0 overflow-hidden bg-[#302b24] text-white">
       <Image
         src={heroImage}
         alt="Woman looking out of a window"

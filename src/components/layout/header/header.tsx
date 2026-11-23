@@ -11,9 +11,15 @@ import { MobileNavigation } from "../mobile-navigation/mobile-navigation";
 import SearchPanel from "./search-panel";
 import { cn } from "cn";
 
-export function Header({ className }: { className?: string }) {
+export function Header({
+  className,
+  overlay = false,
+}: {
+  className?: string;
+  overlay?: boolean;
+}) {
   return (
-    <header className={cn("h-20", className)}>
+    <header className={cn(overlay ? "h-0" : "h-20", className)}>
       <div className="fixed left-1/2 top-3 z-50 h-20 w-full max-w-[1555px] -translate-x-1/2 px-4 sm:px-5 xl:top-6 lg:px-6">
         <div className="flex justify-between items-center p-5 h-10.25 lg:h-16 bg-white rounded-[250px] lg:px-10">
           <div className="flex items-center gap-3">
