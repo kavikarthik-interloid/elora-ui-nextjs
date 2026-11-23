@@ -93,7 +93,11 @@ export default function SearchPanel() {
                 />
               }
             >
-              <X size={30} strokeWidth={2} className="lg:size-5 cursor-pointer" />
+              <X
+                size={30}
+                strokeWidth={2}
+                className="lg:size-5 cursor-pointer"
+              />
             </SheetClose>
           </header>
           <div className="flex flex-col overflow-y-auto px-8 pb-8 lg:w-full lg:px-30">

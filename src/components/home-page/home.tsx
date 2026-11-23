@@ -1,3 +1,11 @@
+import { Header } from "../layout/header/header";
+import HeroSection from "./hero-section";
+
 export default function Home() {
-  return <div>HomePage</div>;
+  return (
+    <main>
+      <Header />
+      <HeroSection />
+    </main>
+  );
 }
