@@ -70,7 +70,7 @@ export default function LoginForm() {
                 variant="fill"
                 className="w-full h-10 md:h-11.25 flex justify-center font-inter items-center rounded-full py-4 text-sm md:text-base xl:text-lg font-medium"
               >
-                Sign In
+                sign in
               </Button>
             </div>
           </div>
@@ -90,8 +90,12 @@ export default function LoginForm() {
           >
             <span className="icon-scroll" aria-hidden="true">
               <span className="icon-scroll-track">
-                <span><GoogleIcon /></span>
-                <span><GoogleIcon /></span>
+                <span>
+                  <GoogleIcon />
+                </span>
+                <span>
+                  <GoogleIcon />
+                </span>
               </span>
             </span>
           </Button>
@@ -102,17 +106,21 @@ export default function LoginForm() {
           >
             <span className="icon-scroll" aria-hidden="true">
               <span className="icon-scroll-track">
-                <span><AppleIcon /></span>
-                <span><AppleIcon /></span>
+                <span>
+                  <AppleIcon />
+                </span>
+                <span>
+                  <AppleIcon />
+                </span>
               </span>
             </span>
           </Button>
         </div>
 
         <div className="pt-11.5 flex flex-wrap justify-center gap-2 text-center text-sm xl:text-lg">
-          <span className="text-secondary">New to Elora?</span>
+          <span className="text-secondary"> New to Elora?</span>
           <Link href="/register" className="text-primary animated-underline">
-            Begin your journey
+             Begin your journey
           </Link>
         </div>
       </div>

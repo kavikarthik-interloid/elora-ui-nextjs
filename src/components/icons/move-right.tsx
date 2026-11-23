@@ -1,5 +1,8 @@
-export default function MoveRightIcon() {
+import { cn } from "cn";
+
+export default function MoveRightIcon({ className }: { className?: string }) {
   return (
+    <div className={cn("hover:rotate-320", className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"
@@ -12,5 +15,6 @@ export default function MoveRightIcon() {
           fill="currentColor"
         />
       </svg>
+    </div>
   );
 }

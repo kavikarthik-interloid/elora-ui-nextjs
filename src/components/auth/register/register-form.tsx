@@ -10,14 +10,30 @@ export default function RegisterForm() {
       <div className="flex h-fit w-full max-w-2xl flex-col rounded-3xl border border-white px-5 py-6 shadow-[0_0_20px_0_#0000000D] sm:px-10 sm:py-10 md:px-15 xl:px-25">
         <div className="flex flex-col items-center text-center gap-3">
           <h1 className="font-cormorant text-[26px] md:text-[30px] xl:text-[34px] leading-tight text-primary">
-            Welcome back
+            Begin Your Journey 
           </h1>
           <p className="text-xs md:text-sm xl:text-base text-secondary font-inter font-medium">
-            Log in to manage your protocol and subscriptions.
+            Create an account to track your personalized protocol.
           </p>
         </div>
         <form className="mt-15 flex flex-col" autoComplete="off" noValidate>
           <div className="flex flex-col gap-6.5">
+            <div className="relative font-cormorant">
+              <input
+                id="fullName"
+                name="fullName"
+                type="fullName"
+                placeholder=" "
+                autoComplete="new-password"
+                className="peer w-full border-b border-border bg-transparent px-0 py-1 text-lg md:text-xl xl:text-[24px] leading-normal text-secondary outline-none focus:border-primary"
+              />
+              <label
+                htmlFor="email"
+                className="w-full pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 bg-background text-lg text-secondary transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-lg peer-placeholder-shown:md:text-xl peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-sm "
+              >
+                Full Name
+              </label>
+            </div>
             <div className="relative font-cormorant">
               <input
                 id="email"
@@ -118,9 +134,9 @@ export default function RegisterForm() {
         </div>
 
         <div className="pt-11.5 flex flex-wrap justify-center gap-2 text-center text-sm xl:text-lg">
-          <span className="text-secondary">New to Elora?</span>
-          <Link href="/register" className="text-primary animated-underline">
-            Begin your journey
+          <span className="text-secondary">Already have an account?</span>
+          <Link href="/login" className="text-primary animated-underline">
+            Sign In
           </Link>
         </div>
       </div>

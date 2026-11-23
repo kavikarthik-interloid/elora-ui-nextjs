@@ -1,5 +1,6 @@
 import MoveLeftIcon from "@/components/icons/move-left";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function ForgotPasswordForm() {
   return (
@@ -42,11 +43,11 @@ export default function ForgotPasswordForm() {
             </div>
           </div>
         </form>
-        <div className="mt-8 flex items-center justify-center gap-3">
+        <Link href="/login" className="mt-8 flex items-center cursor-pointer justify-center gap-3">
           <span className="font-inter flex items-center text-xs xl:text-base font-normal leading-7 tracking-normal text-center text-secondary animated-underline hover:text-primary">
-            <MoveLeftIcon  />Back to Login
+            <MoveLeftIcon />Back to Login
           </span>
-        </div>
+        </Link>
       </div>
     </section>
   );
