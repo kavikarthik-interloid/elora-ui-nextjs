@@ -24,11 +24,12 @@ export function Header({
         <div className="flex justify-between items-center p-5 h-10.25 lg:h-16 bg-white rounded-[250px] lg:px-10">
           <div className="flex items-center gap-3">
             <MobileNavigation />
-            <span
+            <Link
+            href="/home-page"
               className={`${quantify.className} text-[26px] xl:text-[40px] text-primary`}
             >
               Elora.
-            </span>
+            </Link>
           </div>
           <div className="uppercase hidden lg:flex items-center lg:gap-6 xl:gap-12.25 font-inter text-sm">
             <NavigationMenu className="flex-none">
@@ -56,7 +57,7 @@ export function Header({
           <div className="flex gap-2 lg:gap-3.75 items-center">
             <SearchPanel />
             <Tooltip>
-              <TooltipTrigger aria-label="Account">
+              <TooltipTrigger aria-label="Account" className="flex">
                 <UserIcon />
               </TooltipTrigger>
               <TooltipContent

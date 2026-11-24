@@ -96,7 +96,7 @@ export default function SearchPanel() {
               <X
                 size={30}
                 strokeWidth={2}
-                className="lg:size-5 cursor-pointer"
+                className="lg:size-5 cursor-pointer hover:rotate-360 transition-all duration-500"
               />
             </SheetClose>
           </header>
