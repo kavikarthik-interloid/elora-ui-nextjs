@@ -131,7 +131,7 @@ export function MobileNavigation() {
               />
             }
           >
-            <X size={27} strokeWidth={2} className="hover:rotate-360" />
+            <X size={27} strokeWidth={2} className="hover:-rotate-180 transition-all duration-500" />
           </SheetClose>
         </header>
         {activeSubmenu ? (
@@ -180,15 +180,15 @@ export function MobileNavigation() {
                 <Button
                   onClick={() => LoginPage}
                   variant="fill"
-                  className="flex min-h-12 items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter text-white transition-colors hover:bg-[#C99B42]"
+                  className="flex min-h-10 items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter text-white transition-colors hover:bg-[#C99B42]"
                 />
               }
             >
-              <UserIcon />
+              <UserIcon className="inline-flex size-4 xl:size-4"/>
               sign in
             </SheetClose>
             <div className="flex items-center gap-2">
-              <a
+              <Link
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -196,8 +196,8 @@ export function MobileNavigation() {
                 className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
               >
                 <FaceBookIcon />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -205,8 +205,8 @@ export function MobileNavigation() {
                 className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
               >
                 <TwitterIcon />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -214,8 +214,8 @@ export function MobileNavigation() {
                 className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
               >
                 <InstagramIcon />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -223,7 +223,7 @@ export function MobileNavigation() {
                 className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
               >
                 <YoutubeIcon />
-              </a>
+              </Link>
             </div>
           </div>
         </footer>

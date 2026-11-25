@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AppProvider } from "@/providers/app-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { cormorantGaramond, inter, quantify } from "@/lib/fonts";
+import { cormorantGaramond, inter, quantify, zain } from "@/lib/fonts";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -30,6 +30,7 @@ export default function RootLayout({
         quantify.variable,
         "font-sans",
         geist.variable,
+        zain.variable
       )}
     >
       <body>

@@ -3,7 +3,7 @@ export default function SearchIcon() {
     <div className="flex size-4.25 xl:size-6.25 items-center hover:text-primary cursor-pointer">
       <svg
         viewBox="0 0 17 17"
-        fill="none"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

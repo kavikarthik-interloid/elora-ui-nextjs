@@ -1,5 +1,4 @@
 import UserIcon from "../../icons/user";
-import CartIcon from "../../icons/cart";
 import Link from "next/link";
 import { quantify } from "@/lib/fonts";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
@@ -10,6 +9,7 @@ import { JournalMenu } from "./journal-dropdown/journey-menu";
 import { MobileNavigation } from "../mobile-navigation/mobile-navigation";
 import SearchPanel from "./search-panel";
 import { cn } from "cn";
+import CartDrawer from "./cart-drawer";
 
 export function Header({
   className,
@@ -25,7 +25,7 @@ export function Header({
           <div className="flex items-center gap-3">
             <MobileNavigation />
             <Link
-            href="/home-page"
+              href="/home"
               className={`${quantify.className} text-[26px] xl:text-[40px] text-primary`}
             >
               Elora.
@@ -38,7 +38,7 @@ export function Header({
               </NavigationMenuList>
             </NavigationMenu>
             <Link
-              href="/"
+              href="/quiz"
               className="group flex items-center gap-2 lg:text-base tracking-widest animated-underline"
             >
               quiz
@@ -63,23 +63,12 @@ export function Header({
               <TooltipContent
                 side="bottom"
                 sideOffset={8}
-                className="rounded-[14px] bg-secondary px-5 py-2 text-lg text-white"
+                className="rounded-[14px] bg-black px-5 py-2 text-lg text-white"
               >
                 Account
               </TooltipContent>
             </Tooltip>
-            <Tooltip>
-              <TooltipTrigger aria-label="Card">
-                <CartIcon />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                sideOffset={8}
-                className="rounded-[14px] bg-secondary px-5 py-2 text-lg text-white"
-              >
-                Card
-              </TooltipContent>
-            </Tooltip>
+            <CartDrawer />
           </div>
         </div>
       </div>

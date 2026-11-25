@@ -12,7 +12,7 @@ export default function LoginForm() {
   const router = useRouter();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push("/home-page");
+    router.push("/home");
   };
   const [showPassword, setShowPassword] = useState<boolean | null>(false);
   return (

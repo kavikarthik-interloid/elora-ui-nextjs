@@ -9,12 +9,14 @@
     --background: #f6f2ec;
     --foreground: #222222;
     --primary: #af7d28;
+    --primary-text-secondary: #b17d26;
     --secondary: #61605f;
     --card: #505a4a;
     --border: #e8e1d6;
     --line: #e6e6e6;
     --secondary-background: #1c1c1c;
     --sheet-background: #ece9e3;
+    --icon: #a77e50;
   }
 }
 :root {
@@ -22,12 +24,14 @@
   --foreground: oklch(25.197% 0.00003 271.152);
   --secondary-background: oklch(22.645% 0.00003 271.152);
   --primary: oklch(62.515% 0.11553 76.305);
+  --primary-text-secondary: #b17d26;
   --accent-gold: #cd9e49;
   --secondary: oklch(49.319% 0.00198 67.139);
   --card: oklch(45.384% 0.02832 133.796);
   --border: oklch(91.224% 0.01653 79.281);
   --line: oklch(92.494% 0.00011 271.152);
   --card-foreground: oklch(0.145 0 0);
+  --icon: #a77e50;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary-foreground: oklch(0.985 0 0);
@@ -61,6 +65,7 @@
   --color-foreground: var(--foreground);
   --color-secondary-background: var(--secondary-background);
   --color-primary: var(--primary);
+  --color-primary-text-secondary: var(--primary-text-secondary);
   --color-accent-gold: var(--accent-gold);
   --color-secondary: var(--secondary);
   --color-bg-secondary: var(--secondary);
@@ -68,11 +73,13 @@
   --color-border: var(--border);
   --color-line: var(--line);
   --color-sheet-background: var(--sheet-background);
+  --color-icon: var(--icon);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-quantify: var(--font-quantify-file);
   --font-inter: var(--font-inter-file);
   --font-cormorant: var(--font-cormorant-file);
+  --font-zain: var(--font-zain-file);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -239,12 +246,12 @@ input:-webkit-autofill:focus {
   border-radius: 9999px;
   background:
     linear-gradient(rgba(20, 20, 20, 0.055), rgba(20, 20, 20, 0)) padding-box,
-      border-box;
+    border-box;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
     inset 0.5 0.5px 1px rgba(255, 255, 255, 0.61),
-    inset -0.5 -0.5px 1px  rgb(255, 255, 255),
+    inset -0.5 -0.5px 1px rgb(255, 255, 255),
     0 1px 4px rgba(0, 0, 0, 0.11);
 }
 

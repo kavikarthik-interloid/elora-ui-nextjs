@@ -1,7 +1,8 @@
 "use client";
 
+import Home from "@/components/home/home";
+
 // import { EloraIntro } from "@/components/animation/elora-intro";
-import Home from "@/components/home-page/home";
 // import { useCallback, useState, } from "react";
 
 // export default function HomePage() {

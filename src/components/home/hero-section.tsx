@@ -3,7 +3,6 @@ import heroImage from "@/assets/image1.svg";
 import MoveRightIcon from "../icons/move-right";
 import Sparkles from "../icons/sparkles";
 import { Button } from "../ui/button";
-import Home from "./home";
 import { ScrollIndicator } from "../animation/scroll-indicator";
 import { useRouter } from "next/navigation";
 
@@ -11,16 +10,20 @@ export default function HeroSection() {
   const router = useRouter();
   return (
     <section className="relative isolate overflow-hidden bg-[#302b24] text-white sm:min-h-[70%] lg:min-h-[80%] 2xl:min-h-[94%]">
-      <Image
-        src={heroImage}
-        alt="Woman looking out of a window"
-        fill
-        priority
-        className="object-cover object-[35%_center] sm:object-[25%_center] md:object-[20%_center] lg:object-center 2xl:object-center"
-      />
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.21)_0%,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0)_40%)]" />
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.37)_7.6%,rgba(0,0,0,0)_50.12%)]" />
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(0deg,#000000_0%,rgba(0,0,0,0)_70%)]" />
+      <span className="object-fill">
+        <Image
+          src={heroImage}
+          alt="Woman looking out of a window"
+          fill
+          priority
+          quality={100}
+          sizes="100vw"
+          className="object-cover object-[35%_center] sm:object-[25%_center] md:object-[20%_center] lg:object-center 2xl:object-center"
+        />
+      </span>
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.37)_7.6%,rgba(0,0,0,0)_50%)]" />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.21)_0%,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0)_50%)]" />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(0deg,#000000_3%,rgba(0,0,0,0)_51%)]" />
       <div className="relative z-10 mx-auto flex min-h-full w-full h-full max-w-[1800px] flex-col justify-end px-5 pb-2 pt-28 sm:px-8 lg:px-12 lg:pb-4 xl:pt-36">
         <div className="max-w-162.5">
           <div className="mb-12 mt-2 lg:mt-15 inline-flex items-center gap-2 rounded-full bg-primary/25 px-3 py-1.5 text-xs font-semibold font-inter uppercase tracking-wide text-accent-gold  sm:mb-14 sm:text-sm lg:text-[14px]">
@@ -36,7 +39,7 @@ export default function HeroSection() {
           <div className="mt-5 w-full flex flex-col gap-4 sm:mt-30 sm:flex-row">
             <Button
               variant="fill"
-              onClick={() => Home}
+             onClick={() => router.push("/quiz")}
               type="button"
               aria-label="Take the quiz"
               className="flex w-45 h-12 items-center justify-center rounded-full px-5 bg-primary text-base font-medium text-white transition-colors sm:h-13 sm:min-w-47 sm:text-base backdrop-blur-sm"
@@ -53,7 +56,7 @@ export default function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="sm:mt-20 flex justify-center items-start">
+        <div className="mt-4 sm:mt-20 flex justify-center items-start">
           <ScrollIndicator />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Zain } from "next/font/google";
 import { Cormorant_Garamond } from "next/font/google";
 
 export const quantify = localFont({
@@ -20,5 +20,12 @@ export const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+export const zain = Zain({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
+  variable: "--font-zain-file",
   display: "swap",
 });
