@@ -1,5 +1,6 @@
 "use client";
 
+import VectorIcon from "@/components/icons/vector";
 import Link from "next/link";
 
 export default function QuizResultsHero() {
@@ -9,15 +10,19 @@ export default function QuizResultsHero() {
         aria-label="Breadcrumb"
         className="mx-auto mt-12 flex max-w-5xl items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em]"
       >
-        <Link href="/home" className="hover:text-[#b1812b]">
+        <Link href="/home" className="relative text-sm lg:text-base uppercase tracking-[0.2em] flex gap-2.5 items-center text-white">
           Home
         </Link>
-        <span>›</span>
-        <Link href="/quiz" className="hover:text-[#b1812b]">
+        <span>
+          <VectorIcon className="text-white"/>
+        </span>
+        <Link href="/quiz" className="hover:text-primary">
           Quiz
         </Link>
-        <span>›</span>
-        <span className="text-[#b1812b]">Quiz Results</span>
+        <span>
+          <VectorIcon />
+        </span>
+        <span className="text-primary">Quiz Results</span>
       </nav>
       <div className="mx-auto mt-16 max-w-2xl text-center sm:mt-20">
         <p className="font-inter text-[13px] font-medium uppercase tracking-[0.18em] text-[#dedbd7]">
@@ -25,7 +30,7 @@ export default function QuizResultsHero() {
         </p>
         <h1 className="mt-5 font-cormorant text-[42px] leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
           <span className="block">Your ELORA</span>
-          <span className="mt-1 block italic text-[#b1812b]">
+          <span className="mt-1 block italic text-primary">
             Ritual is Ready.
           </span>
         </h1>

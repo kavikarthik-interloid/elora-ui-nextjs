@@ -287,6 +287,39 @@ input:-webkit-autofill:focus {
 .shop-item-float {
   animation: shop-item-float 3s ease-in-out infinite;
 }
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.card-float {
+  animation: card-float 3s ease-in-out infinite;
+}
+
+
+@keyframes assessment-card-rock {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(7deg) scale(1.05);
+  }
+}
+
+.assessment-card-rock {
+  animation: assessment-card-rock 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
 .shop-menu-panel a:nth-child(2) .shop-item-float {
   animation-delay: 120ms;
 }
@@ -297,6 +330,30 @@ input:-webkit-autofill:focus {
   animation-delay: 360ms;
 }
 
+@keyframes social-icon-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.social-icon-pop {
+  transform: scale(1);
+  transition: transform 200ms ease-out;
+}
+
+.social-icon-button:hover .social-icon-pop,
+.social-icon-button:focus-within .social-icon-pop {
+  animation: social-icon-pop 350ms ease-in-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animated-underline::after {
     transition: none;
@@ -304,6 +361,16 @@ input:-webkit-autofill:focus {
 
   .shop-item-float {
     animation: none;
+  }
+
+  .assessment-card-rock {
+    animation: none;
+  }
+
+  .social-icon-button:hover .social-icon-pop,
+  .social-icon-button:focus-within .social-icon-pop {
+    animation: none;
+    transform: scale(1);
   }
 }
 
@@ -445,16 +512,11 @@ input:-webkit-autofill:focus {
 @keyframes button-fill-away {
   0% {
     transform: translateY(0);
-    filter: blur(6px);
   }
-
   85% {
-    filter: blur(6px);
   }
-
   100% {
     transform: translateY(-100%);
-    filter: blur(0);
   }
 }
 
@@ -465,7 +527,7 @@ input:-webkit-autofill:focus {
   }
 
   15% {
-    filter: blur(6px);
+    filter: blur(0px)
   }
 
   100% {

@@ -1,14 +1,17 @@
 export type QuizQuestion = {
-  id: string;
-  section: string;
+  id: number;
+  name?: string;
+  section?: string;
   question: string;
-  mode: "single" | "multiple";
-  options: { id: string; label: string }[];
+  mode: "single" | "multiple" | "none";
+  options?: { id: string; label: string }[];
+  description?: string;
 };
 
 export const quizQuestions: QuizQuestion[] = [
   {
-    id: "age",
+    id: 1,
+    name: "age",
     section: "Foundation",
     question: "Which age range describes you?",
     mode: "single",
@@ -21,7 +24,8 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: "hormonal-journey",
+    id: 2,
+    name: "hormonal-journey",
     section: "Foundation",
     question: "Where are you in your hormonal journey?",
     mode: "single",
@@ -34,7 +38,8 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: "symptoms",
+    id: 3,
+    name: "symptoms",
     section: "Foundation",
     question: "Which of these have you noticed in the past month?",
     mode: "multiple",
@@ -50,7 +55,8 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: "stress",
+    id: 4,
+    name: "stress",
     section: "Foundation",
     question: "How would you describe your current stress level?",
     mode: "single",
@@ -62,7 +68,8 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: "priority",
+    id: 5,
+    name: "priority",
     section: "Foundation",
     question: "What matters most to you right now?",
     mode: "multiple",
@@ -74,5 +81,12 @@ export const quizQuestions: QuizQuestion[] = [
       { id: "hot-flashes", label: "Fewer hot flashes" },
       { id: "hormonal-health", label: "Long-term hormonal" },
     ],
+  },
+  {
+    id: 6,
+    name: "almost there",
+    question: "What should we send your results ?",
+    description: "Your personalized recommendation, plus quiet, considered writing on hormonal health. Unsubscribe anytime.",
+    mode: "none",
   },
 ];

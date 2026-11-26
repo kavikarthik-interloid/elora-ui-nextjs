@@ -1,5 +1,8 @@
-export default function FaceBookIcon() {
+import { cn } from "cn";
+
+export default function FaceBookIcon({ className }: { className?: string }) {
   return (
+    <div className={cn("", className)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="10"
@@ -12,8 +15,9 @@ export default function FaceBookIcon() {
         strokeWidth="1.18433"
         strokeLinecap="round"
         strokeLinejoin="round"
-        stroke="#AE7D28"
+        stroke="currentColor"
       />
     </svg>
+    </div>
   );
 }

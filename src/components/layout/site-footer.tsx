@@ -31,10 +31,10 @@ export default function SiteFooter() {
           variant="fill"
           type="button"
           aria-label="Take the quiz"
-          className="mt-18 h-12 w-fit self-start rounded-[100px] border px-7 py-3 text-start font-inter text-base font-medium leading-6 tracking-normal md:mt-8 md:self-center md:text-center md:text-[1.125rem]"
+          className="group mt-18 h-12 w-fit self-start rounded-[100px] border px-7 py-3 text-start font-inter text-base font-medium leading-6 tracking-normal md:mt-8 md:self-center md:text-center md:text-[1.125rem]"
         >
           Take the Quiz{" "}
-          <MoveRightIcon className="group-hover/button:rotate-320" />
+          <MoveRightIcon className="group-hover/button:-rotate-45 transition-normal duration-500" />
         </Button>
       </div>
       <div>

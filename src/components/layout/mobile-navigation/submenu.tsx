@@ -37,7 +37,7 @@ export default function Submenu({
       <button
         type="button"
         onClick={onBack}
-        className="mb-6 flex items-center gap-2 font-inter text-xs uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-primary"
+        className="mb-6 cursor-pointer flex items-center gap-2 font-inter text-xs uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-primary"
       >
         <ChevronLeft size={16} />
         {title}

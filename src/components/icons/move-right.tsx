@@ -2,7 +2,7 @@ import { cn } from "cn";
 
 export default function MoveRightIcon({ className }: { className?: string }) {
   return (
-    <div className={cn("hover:rotate-320", className)}>
+    <div className={cn(className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"

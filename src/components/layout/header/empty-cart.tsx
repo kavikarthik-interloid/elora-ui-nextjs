@@ -24,10 +24,10 @@ export default function EmptyCart() {
         variant="fill"
         type="button"
         aria-label="Take the quiz"
-        className="relative z-10 h-12 w-3/4 self-center rounded-[100px] border px-7 py-3 text-start font-inter text-sm font-medium leading-6 tracking-normal mt-7.5 md:mt-8 md:self-center md:text-center md:text-[1.125rem]"
+        className="group relative z-10 h-12 w-3/4 self-center rounded-[100px] border px-7 py-3 text-start font-inter text-sm font-medium leading-6 tracking-normal mt-7.5 md:mt-8 md:self-center md:text-center md:text-[1.125rem]"
       >
         Take the Quiz
-        <MoveRightIcon className="group-hover/button:rotate-320" />
+        <MoveRightIcon className="group-hover/button:-rotate-45 transition-normal duration-500" />
       </Button>
     </div>
   );

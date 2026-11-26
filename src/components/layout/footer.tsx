@@ -31,10 +31,10 @@ function LinkGroup({ title, links }: { title: string; links: string[] }) {
             href="#"
             className="group inline-flex w-fit items-center gap-2 text-white/90 transition-colors hover:text-primary duration-300 ease-out"
           >
-            <span className="underline-offset-4 group-hover:underline">
+            <span className="underline-offset-4 group-hover:underline transition-all duration-250">
               {link}
             </span>
-            <MoveRightIcon className="pointer-events-none opacity-0 group-hover:rotate-320 group-hover:opacity-100" />
+            <MoveRightIcon className="pointer-events-none opacity-0 -rotate-45 group-hover:opacity-100  duration-500" />
           </a>
         ))}
       </div>
@@ -69,7 +69,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="flex shrink-0 items-center gap-2 bg-transparent xl:text-lg font-inter text-base text-white"
+                className="flex shrink-0 cursor-pointer hover:text-primary duration-300 items-center gap-2 bg-transparent xl:text-lg font-inter text-base text-white"
               >
                 Subscribe <MoveRightIcon />
               </button>

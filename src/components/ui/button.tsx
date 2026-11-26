@@ -10,6 +10,8 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground hover:bg-primary/80",
         fill: "button-fill text-white active:translate-y-0",
         "icon-fill": "icon-fill text-primary active:translate-y-0",
+        "icon-slide":
+          "group/button relative isolate overflow-hidden before:absolute before:inset-0 before:z-0 before:scale-0 before:origin-center before:bg-primary before:rounded-full before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-100 hover:text-white",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
@@ -53,6 +55,6 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  )
+  );
 }
 export { Button, buttonVariants };

@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/sheet";
 import MenuIcon from "../../icons/menu";
 import { Button } from "../../ui/button";
-import LoginPage from "../../../../app/login/page";
 import UserIcon from "../../icons/user";
 import TwitterIcon from "../../icons/twitter";
 import InstagramIcon from "../../icons/instagram";
@@ -23,6 +22,7 @@ import { journalArticles } from "@/data/journey-menu";
 import { ChevronRight, X } from "lucide-react";
 import { type ImageProps } from "next/image";
 import Submenu, { MobileSubmenuConfig, MobileSubmenuItem } from "./submenu";
+import { useRouter } from "next/navigation";
 
 function toMobileItems(
   items: Array<{
@@ -82,6 +82,7 @@ export const navigationItems = [
 ];
 
 export function MobileNavigation() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] =
     useState<MobileSubmenuConfig | null>(null);
@@ -99,7 +100,7 @@ export function MobileNavigation() {
           <button
             type="button"
             aria-label="Open navigation"
-            className="inline-flex items-center justify-center p-2 lg:hidden"
+            className="cursor-pointer inline-flex items-center justify-center p-2 lg:hidden"
           />
         }
       >
@@ -115,7 +116,7 @@ export function MobileNavigation() {
             nativeButton={false}
             render={
               <Link
-                href="/"
+                href="/home"
                 className="font-quantify text-[26px] font-bold text-primary"
               />
             }
@@ -131,7 +132,11 @@ export function MobileNavigation() {
               />
             }
           >
-            <X size={27} strokeWidth={2} className="hover:-rotate-180 transition-all duration-500" />
+            <X
+              size={27}
+              strokeWidth={2}
+              className="hover:-rotate-180 transition-all duration-500 cursor-pointer "
+            />
           </SheetClose>
         </header>
         {activeSubmenu ? (
@@ -141,14 +146,16 @@ export function MobileNavigation() {
             <ul className="space-y-5">
               {navigationItems.map((item) => (
                 <li key={item.label}>
-                  <div className="flex cursor-pointer items-center justify-between transition-transform duration-200 ease-out hover:text-primary">
+                  <div className="flex  items-center justify-between transition-transform duration-200 ease-out hover:text-primary">
                     {item.submenu ? (
                       <button
                         type="button"
                         onClick={() => setActiveSubmenu(item.submenu)}
-                        className="flex w-full items-center justify-between text-left font-cormorant text-[26px] leading-tight text-white"
+                        className="group/button flex cursor-pointer hover:text-primary duration-200 w-full items-center justify-between text-left font-cormorant text-[26px] leading-tight text-white"
                       >
-                        {item.label}
+                        <span className="transition-all duration-500 ease-in-out group-hover/button:ml-2">
+                          {item.label}
+                        </span>
                         <ChevronRight
                           size={21}
                           className="transition-transform duration-300"
@@ -160,7 +167,7 @@ export function MobileNavigation() {
                         render={
                           <Link
                             href={item.href}
-                            className="flex w-full items-center text-left font-cormorant text-[26px] leading-tight text-white"
+                            className="flex w-full transition-all duration-500 ease-in-out hover:ml-2 hover:text-primary items-center text-left font-cormorant text-[26px] leading-tight text-white"
                           />
                         }
                       >
@@ -178,52 +185,80 @@ export function MobileNavigation() {
             <SheetClose
               render={
                 <Button
-                  onClick={() => LoginPage}
+                  onClick={() => router.push("/login")}
                   variant="fill"
-                  className="flex min-h-10 items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter text-white transition-colors hover:bg-[#C99B42]"
+                  className="flex min-h-10 items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter hover:text-white transition-colors hover:bg-[#C99B42]"
                 />
               }
             >
-              <UserIcon className="inline-flex size-4 xl:size-4"/>
+              <UserIcon className="inline-flex size-4 xl:size-4" />
               sign in
             </SheetClose>
-            <div className="flex items-center gap-2">
-              <Link
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
+            <div className="flex items-center gap-1">
+              <Button
+                variant="icon-slide"
+                className="social-icon-button px-0 h-10 fill rounded-full bg-secondary-background text-primary hover:text-white"
               >
-                <FaceBookIcon />
-              </Link>
-              <Link
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X"
-                className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
+                <Link
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="relative z-10 flex size-9 items-center justify-center rounded-full text-primary group-hover/button:text-white"
+                >
+                  <span className="social-icon-pop inline-flex">
+                    <FaceBookIcon />
+                  </span>
+                </Link>
+              </Button>
+              <Button
+                variant="icon-slide"
+                className="social-icon-button px-0 h-10 fill rounded-full bg-secondary-background text-primary"
               >
-                <TwitterIcon />
-              </Link>
-              <Link
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
+                <Link
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X"
+                  className="relative z-10 flex size-9 items-center justify-center rounded-full text-primary group-hover/button:text-white"
+                >
+                  <span className="social-icon-pop inline-flex">
+                    <TwitterIcon />
+                  </span>
+                </Link>
+              </Button>
+              <Button
+                variant="icon-slide"
+                className="social-icon-button px-0 h-10 fill rounded-full bg-secondary-background text-primary"
               >
-                <InstagramIcon />
-              </Link>
-              <Link
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="flex size-9 items-center justify-center rounded-full bg-secondary-background text-primary"
+                <Link
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="relative z-10 flex size-9 items-center justify-center rounded-full text-primary group-hover/button:text-white"
+                >
+                  <span className="social-icon-pop inline-flex">
+                    <InstagramIcon />
+                  </span>
+                </Link>
+              </Button>
+              <Button
+                variant="icon-slide"
+                className="social-icon-button px-0 h-10 fill rounded-full bg-secondary-background text-primary"
               >
-                <YoutubeIcon />
-              </Link>
+                <Link
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="relative z-10 flex size-9 items-center justify-center rounded-full text-primary group-hover/button:text-white"
+                >
+                  <span className="social-icon-pop inline-flex">
+                    <YoutubeIcon />
+                  </span>
+                </Link>
+              </Button>
             </div>
           </div>
         </footer>

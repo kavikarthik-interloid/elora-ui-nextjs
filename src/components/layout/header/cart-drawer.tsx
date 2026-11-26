@@ -234,10 +234,10 @@ export default function CartDrawer() {
             </p>
             <Button
               variant="fill"
-              className="mt-6.25 w-full flex h-9 items-center justify-center lg:h-11 gap-3.75 font-medium rounded-full bg-primary text-[13px] text-sm lg:text-base text-white transition-colors hover:bg-[#9d7123]"
+              className="group mt-6.25 w-full flex h-9 items-center justify-center lg:h-11 gap-3.75 font-medium rounded-full bg-primary text-[13px] text-sm lg:text-base text-white transition-colors hover:bg-[#9d7123]"
             >
               Proceed to Checkout
-              <MoveRightIcon />
+              <MoveRightIcon className="group-hover/button:-rotate-45 transition-normal duration-500"/>
             </Button>
           </div>
         )}

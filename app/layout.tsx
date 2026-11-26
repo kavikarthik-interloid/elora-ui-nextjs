@@ -5,6 +5,7 @@ import { cormorantGaramond, inter, quantify, zain } from "@/lib/fonts";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import ScrollToTop from "@/components/layout/scroll-to-top";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -29,14 +30,16 @@ export default function RootLayout({
         inter.variable,
         quantify.variable,
         "font-sans",
+        "scroll-smooth motion-reduce:scroll-auto",
         geist.variable,
-        zain.variable
+        zain.variable,
       )}
     >
-      <body>
+      <body id="top">
         <TooltipProvider>
           <AppProvider>{children}</AppProvider>
         </TooltipProvider>
+        <ScrollToTop />
       </body>
     </html>
   );

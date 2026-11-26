@@ -12,7 +12,7 @@ export default function YoutubeIcon() {
         strokeWidth="1.18433"
         strokeMiterlimit="10"
         strokeLinejoin="round"
-        stroke="#AE7D28"
+        stroke="currentColor"
       />
     </svg>
   );
