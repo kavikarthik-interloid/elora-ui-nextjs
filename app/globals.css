@@ -117,13 +117,12 @@
 
 html {
   width: 100%;
-  height: 100%;
+  height: 100dvh;
 }
 
 body {
   width: 100%;
-  min-height: 100dvh;
-  height: auto;
+  height: 100%;
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
@@ -238,23 +237,6 @@ input:-webkit-autofill:focus {
   position: relative;
 }
 
-.corner-line {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: 9999px;
-  background:
-    linear-gradient(rgba(20, 20, 20, 0.055), rgba(20, 20, 20, 0)) padding-box,
-    border-box;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    inset 0.5 0.5px 1px rgba(255, 255, 255, 0.61),
-    inset -0.5 -0.5px 1px rgb(255, 255, 255),
-    0 1px 4px rgba(0, 0, 0, 0.11);
-}
-
 .animated-underline::after {
   content: "";
   position: absolute;
@@ -271,6 +253,50 @@ input:-webkit-autofill:focus {
 .animated-underline:hover::after,
 .animated-underline:focus-visible::after {
   transform: scaleX(1);
+}
+
+.animated-underline-swap {
+  position: relative;
+  width: fit-content;
+  display: inline-flex;
+}
+
+.animated-underline-swap::before,
+.animated-underline-swap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.animated-underline-swap::before {
+  background-color: #171717;
+  transform: scaleX(1);
+  transition: transform 300ms ease-in-out;
+  transition-delay: 300ms;
+}
+
+.animated-underline-swap::after {
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+  transition-delay: 0ms;
+}
+
+.animated-underline-swap:hover::before,
+.animated-underline-swap:focus-visible::before {
+  transform: scaleX(0);
+  transition-delay: 0ms;
+}
+
+.animated-underline-swap:hover::after,
+.animated-underline-swap:focus-visible::after {
+  transform: scaleX(1);
+  transition-delay: 300ms;
 }
 
 @keyframes shop-item-float {
@@ -302,7 +328,6 @@ input:-webkit-autofill:focus {
 .card-float {
   animation: card-float 3s ease-in-out infinite;
 }
-
 
 @keyframes assessment-card-rock {
   0%,
@@ -414,6 +439,47 @@ input:-webkit-autofill:focus {
   animation: button-fill-away 350ms ease both;
 }
 
+.glass-btn {
+  position: relative;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+}
+
+.glass-btn:not(.icon-fill)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      ellipse 45% 110% at 8% 0%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      ellipse 45% 110% at 92% 100%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12));
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  transition: opacity 350ms ease;
+}
+
 .button-fill-hover {
   position: relative;
   isolation: isolate;
@@ -421,7 +487,7 @@ input:-webkit-autofill:focus {
   transition: color 350ms ease;
 }
 
-.button-fill-hover::before {
+.button-fill-hover::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -430,17 +496,28 @@ input:-webkit-autofill:focus {
   border: 1px solid var(--primary);
   background: color-mix(in oklch, var(--primary) 40%, transparent);
   transform: translateY(100%);
-  filter: blur(0);
-  will-change: transform;
+  will-change: transform, filter;
+  pointer-events: none;
+}
+
+.button-fill-hover:hover::after,
+.button-fill-hover:focus-visible::after {
+  animation: button-fill-return 350ms ease both;
+}
+
+.shop-now-button:hover::after,
+.shop-now-button:focus-visible::after {
+  background: color-mix(in oklch, var(--primary) 100%, transparent);
+  border: 1px solid var(--primary);
+}
+
+.button-fill-hover:not(:hover):not(:focus-visible)::after {
+  animation: button-fill-away 350ms ease both;
 }
 
 .button-fill-hover:hover::before,
 .button-fill-hover:focus-visible::before {
-  animation: button-fill-return 350ms ease both;
-}
-
-.button-fill-hover:not(:hover):not(:focus-visible)::before {
-  animation: button-fill-away 350ms ease both;
+  opacity: 0;
 }
 
 .button-fill-hover:hover,
@@ -459,6 +536,38 @@ input:-webkit-autofill:focus {
   transition:
     color 350ms ease,
     border-color 350ms ease;
+}
+
+.icon-fill.glass-btn {
+  background:
+    radial-gradient(
+      ellipse 45% 110% at 8% 0%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      ellipse 45% 110% at 92% 100%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)) !important;
+}
+
+.icon-fill.cart-scroll-button {
+  border-color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+}
+
+.icon-fill.cart-scroll-button:hover,
+.icon-fill.cart-scroll-button:focus-visible {
+  border-color: var(--primary);
+}
+
+.icon-fill.cart-scroll-button::before {
+  background: var(--primary);
+  border: 1px solid var(--primary) !important;
 }
 
 .icon-fill::before {
@@ -486,8 +595,8 @@ input:-webkit-autofill:focus {
   position: relative;
   z-index: 10;
   display: block;
-  width: 1.25rem;
-  height: 1.375rem;
+  width: 1.5rem;
+  height: 1.5rem;
   overflow: hidden;
 }
 
@@ -527,7 +636,7 @@ input:-webkit-autofill:focus {
   }
 
   15% {
-    filter: blur(0px)
+    filter: blur(0px);
   }
 
   100% {
@@ -536,29 +645,38 @@ input:-webkit-autofill:focus {
   }
 }
 
-.corner-frame::before,
-.corner-frame::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  pointer-events: none;
+.corner-frame {
+  position: relative;
+  border-radius: 10px;
 }
 
 .corner-frame::before {
-  top: 0;
-  left: 0;
-  border-top: 1px solid rgb(255 255 255 / 0.5);
-  border-left: 1px solid rgb(255 255 255 / 0.5);
-  border-top-left-radius: 10px;
-}
-
-.corner-frame::after {
-  right: 0;
-  bottom: 0;
-  border-right: 1px solid rgb(255 255 255 / 0.5);
-  border-bottom: 1px solid rgb(255 255 255 / 0.5);
-  border-bottom-right-radius: 10px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle 70px at 0 0,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      circle 70px at 100% 100%,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  background-repeat: no-repeat;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }
 
 @keyframes scroll-line {

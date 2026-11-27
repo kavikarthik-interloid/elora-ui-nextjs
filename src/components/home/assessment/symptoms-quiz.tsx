@@ -14,7 +14,7 @@ export default function SymptomsQuiz() {
       className="relative mx-auto w-full max-w-125 card-float"
     >
       <div className="relative min-h-147.5 rounded-[28px] border border-white/70 bg-background px-6.5 pb-10 pt-5.75 shadow-[0_18px_45px_-20px_rgba(0,0,0,0.28)]">
-        <header className="flex items-center justify-between text-[11px] tracking-[2px]">
+        <header className="flex items-center justify-between text-[11px] lg:text-[13px]  tracking-[2px]">
           <span className="text-foreground">STEP 03 OF 06</span>
           <span className="text-primary">2 MIN REMAINING</span>
         </header>
@@ -29,12 +29,12 @@ export default function SymptomsQuiz() {
           <div className="h-full w-1/2 rounded-full bg-primary" />
         </div>
         <div className="mt-9">
-          <p className="text-[11px] font-medium tracking-[2px] text-[foreground">
+          <p className="text-[11px] lg:text-[13px] font-medium tracking-[2px] text-[foreground">
             YOUR SYMPTOMS
           </p>
           <h2
             id="quiz-title"
-            className="mt-4 font-cormorant text-2xl leading-[1.2] text-[foreground text-pretty"
+            className="mt-4 font-cormorant text-2xl lg:text-[28px] leading-[1.2] text-foreground "
           >
             Which of these have you noticed in the past month?
           </h2>
@@ -42,7 +42,7 @@ export default function SymptomsQuiz() {
             {symptoms.map(({ label, selected }) => (
               <li
                 key={label}
-                className={`flex min-h-15 items-center justify-between rounded-xl border px-5 text-[15px] text-foreground ${
+                className={`flex min-h-15 items-center justify-between rounded-xl border px-5 text-[15px] lg:text-[18px] text-foreground ${
                   selected
                     ? "border-primary bg-background"
                     : "border-border bg-white/40"
@@ -71,13 +71,13 @@ export default function SymptomsQuiz() {
         </div>
         <aside
           aria-label="Your wellness match"
-          className="assessment-card-rock absolute -bottom-14 right-2 z-10 w-42.75 md:w-48.5 rounded-2xl bg-card px-5 py-4 text-background shadow-[0_12px_24px_rgba(0,0,0,0.2)]"
+          className="assessment-card-rock absolute -bottom-14 right-2 z-10 w-42.75 md:w-48.5 lg:w-62.5 lg:-bottom-25 rounded-2xl bg-card px-5 py-4 text-background shadow-[0_12px_24px_rgba(0,0,0,0.2)]"
         >
-          <p className="text-[10px] tracking-[2px]">YOUR MATCH</p>
-          <h3 className="mt-1 font-cormorant text-[20px] md:text-[22px] leading-tight">
+          <p className="text-[10px] font-inter lg:text-sm tracking-[2px]">YOUR MATCH</p>
+          <h3 className="mt-1 font-cormorant text-[20px] md:text-[22px] lg:text-[30px] font-semibold leading-tight">
             Sleep + Balance
           </h3>
-          <p className="mt-3 text-[11px] md:text-[12px] leading-[1.6] text-white/75">
+          <p className="mt-3 text-[11px] font-inter md:text-[12px] lg:text-base leading-[1.6] text-white/75">
             A tailored two-formula protocol based on your responses.
           </p>
         </aside>

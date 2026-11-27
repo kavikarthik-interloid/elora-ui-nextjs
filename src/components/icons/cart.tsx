@@ -1,11 +1,14 @@
-export default function CartIcon() {
+import { cn } from "cn";
+
+export default function CartIcon({ className }: { className?: string }) {
   return (
-    <div className="size-4.25 xl:size-6 hover:text-primary cursor-pointer">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 16 16"
-        fill="none"
-      >
+    <div
+      className={cn(
+        "size-4.25 xl:size-6  cursor-pointer",
+        className,
+      )}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
         <path
           d="M7.6583 13.2222C7.6583 13.9638 7.0571 14.565 6.31548 14.565C5.57386 14.565 4.97266 13.9638 4.97266 13.2222C4.97266 12.4806 5.57386 11.8794 6.31548 11.8794C7.0571 11.8794 7.6583 12.4806 7.6583 13.2222Z"
           strokeWidth="1.5"

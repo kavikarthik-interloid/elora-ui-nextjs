@@ -35,8 +35,8 @@ export const assessment: assessment[] = [
 
 export default function AssessmentSection() {
   return (
-    <section className="px-5 pt-15 pb-5 md:px-10 lg:flex lg:w-full lg:flex-row-reverse">
-      <div className="lg:w-1/2">
+    <section className="px-5 pt-15 pb-5 md:px-10 lg:flex lg:w-full lg:flex-row-reverse lg:gap-10 xl:gap-0">
+      <div className="lg:w-1/2 xl:mr-40">
         <div>
           <span className="font-inter text-sm xl:text-base text-primary font-medium leading-none tracking-[0.15em]">
             THE ASSESSMENT
@@ -58,7 +58,7 @@ export default function AssessmentSection() {
               <span className="font-inter text-[17px] font-medium leading-[1.7] lg:text-[20px]">
                 {item.title}
               </span>
-              <p className="font-inter text-[17px] lg:text-[18px] font-normal leading-[1.7] tracking-normal">
+              <p className="font-inter text-[17px] lg:text-[18px]  leading-[1.7] tracking-normal">
                 {item.description}
               </p>
             </div>

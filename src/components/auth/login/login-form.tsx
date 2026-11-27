@@ -94,7 +94,7 @@ export default function LoginForm() {
         </form>
         <div className="mt-3 flex items-center gap-3">
           <span className="h-px flex-1 bg-line" />
-          <span className="font-inter text-[10px] font-normal leading-7 tracking-normal text-center text-secondary">
+          <span className="font-inter text-[10px]  leading-7 tracking-normal text-center text-secondary">
             or continue with
           </span>
           <span className="h-px flex-1 bg-line" />

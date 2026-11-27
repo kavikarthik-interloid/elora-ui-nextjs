@@ -15,9 +15,6 @@ export default function HeroSection() {
           src={heroImage}
           alt="Woman looking out of a window"
           fill
-          priority
-          quality={100}
-          sizes="100vw"
           className="object-cover object-[35%_center] sm:object-[25%_center] md:object-[20%_center] lg:object-center 2xl:object-center"
         />
       </span>
@@ -39,7 +36,7 @@ export default function HeroSection() {
           <div className="mt-5 w-full flex flex-col gap-4 sm:mt-30 sm:flex-row">
             <Button
               variant="fill"
-             onClick={() => router.push("/quiz")}
+              onClick={() => router.push("/quiz")}
               type="button"
               aria-label="Take the quiz"
               className="group flex font-inter w-45 h-12 items-center justify-center rounded-full px-5 bg-primary text-base font-medium text-white transition-colors sm:h-13 sm:min-w-47 sm:text-base backdrop-blur-sm"
@@ -50,7 +47,7 @@ export default function HeroSection() {
             <Button
               variant="ghost"
               onClick={() => router.push("/shop")}
-              className="corner-line button-fill-hover hover:border-primary! flex h-12 w-45 items-center justify-center rounded-full px-5 font-inter text-base font-medium text-white transition-colors sm:h-13 sm:min-w-47"
+              className="glass-btn button-fill-hover flex h-12 w-45 items-center justify-center rounded-full px-5 font-inter text-base font-medium text-white transition-colors sm:h-13 sm:min-w-47"
             >
               Shop Bestsellers
             </Button>

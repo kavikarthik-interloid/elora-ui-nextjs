@@ -22,6 +22,7 @@ export type MobileSubmenuConfig = {
   };
   promo?: typeof shopPromo;
   animate?: boolean;
+  align?: boolean;
 };
 
 export default function Submenu({
@@ -31,15 +32,16 @@ export default function Submenu({
   allLink,
   promo,
   animate,
+  align,
 }: MobileSubmenuConfig & { onBack: () => void }) {
   return (
     <nav className="flex flex-1 flex-col overflow-y-auto px-6 py-6">
       <button
         type="button"
         onClick={onBack}
-        className="mb-6 cursor-pointer flex items-center gap-2 font-inter text-xs uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-primary"
+        className="mb-6 cursor-pointer flex items-center gap-2 font-inter text-[11px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-primary"
       >
-        <ChevronLeft size={16} />
+        <ChevronLeft size={14} />
         {title}
       </button>
 
@@ -54,11 +56,12 @@ export default function Submenu({
                 className="group flex items-center gap-4"
               />
             }
+            className="hover:bg-[#2A2A2A] py-1 px-1 hover:rounded-lg hover:shadow-lg"
           >
             <div
               className={cn(
-                "corner-frame relative flex h-16 w-16 shrink-0 items-center rounded-[10px] justify-center overflow-hidden bg-white/5",
-                animate && "shop-item-float overflow-visible ",
+                "corner-frame relative flex h-14 w-14 shrink-0 items-center rounded-[10px] justify-center overflow-hidden bg-white/5",
+                animate && "shop-item-float overflow-visible",
               )}
             >
               <Image
@@ -67,15 +70,15 @@ export default function Submenu({
                 className={cn(
                   "object-fill",
                   animate &&
-                    "absolute bottom-0 left-1/2 h-19 w-12 -translate-x-1/2",
+                    "absolute bottom-0 left-1/2 h-18 w-11 -translate-x-1/2",
                 )}
               />
             </div>
             <span className="flex flex-col">
-              <span className="font-cormorant text-[22px] leading-none text-white">
+              <span className="font-cormorant text-[20px] leading-none text-white">
                 {item.title}
               </span>
-              <span className="mt-1 font-cormorant text-base text-white/50">
+              <span className="mt-1 font-cormorant text-[15px] text-white/50">
                 {item.subtitle}
               </span>
             </span>
@@ -87,21 +90,20 @@ export default function Submenu({
         render={
           <Link
             href={allLink.href}
-            className="mt-10 flex items-center gap-2 font-cormorant text-xl text-center text-white transition-colors hover:text-primary"
+            className="mt-10 flex items-center gap-2 font-cormorant text-lg text-center text-white transition-colors hover:text-primary"
           />
         }
       >
         {allLink.label}
-        <MoveRightIcon className="size-5 flex items-center" />
+        <MoveRightIcon className="size-3.5 flex items-center" />
       </SheetClose>
-
       {promo ? (
         <SheetClose
           nativeButton={false}
           render={
             <Link
               href={promo.href}
-              className="group relative mt-auto block min-h-44 overflow-hidden rounded-[22px]"
+              className={cn("group relative mt-auto block min-h-35 overflow-hidden rounded-[18px]", align && ("min-h-43.5"))}
             />
           }
         >
@@ -109,16 +111,32 @@ export default function Submenu({
             src={promo.image}
             alt=""
             fill
-            sizes="100vw"
-
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover  transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/30 to-transparent" />
-          <div className="relative z-10 flex h-full max-w-55 flex-col justify-center gap-2 p-5">
-            <h2 className="font-cormorant text-[25px] leading-[0.95] text-primary">
+          {align && (
+            <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.78)_0.21%,rgba(0,0,0,0.65)_32.42%,rgba(0,0,0,0.43)_62.88%,rgba(0,0,0,0)_88.35%)]" />
+          )}
+          {animate && (
+            <div className="absolute -inset-1 rounded-[inherit] bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0.21%,rgba(0,0,0,0.65)_32.42%,rgba(0,0,0,0.43)_62.88%,rgba(0,0,0,0)_88.35%)]" />
+          )}
+          <div className={cn("pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/10", align && ("ring-0"))}/>
+          <div
+            className={cn(
+              "relative z-10 flex h-full max-w-80 flex-col justify-center gap-2 p-5",
+              align && "justify-end text-white pl-4 pb-0",
+            )}
+          >
+            <h2
+              className={cn(
+                "font-cormorant text-[20px] md:text-[22px] font-bold leading-[0.95] w-40 text-primary",
+                align && "text-white",
+              )}
+            >
               {promo.title}
             </h2>
-            <p className="font-inter text-xs text-white">{promo.description}</p>
+            <p className="font-inter text-[10px] md:text-sm leading-5.75 text-white">
+              {promo.description}
+            </p>
           </div>
         </SheetClose>
       ) : null}

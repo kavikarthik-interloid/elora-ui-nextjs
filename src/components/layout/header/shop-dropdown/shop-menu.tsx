@@ -13,7 +13,7 @@ import { ShopPromoBanner } from "./shop-promo-banner";
 export function ShopMenu() {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="h-auto rounded-none bg-transparent p-0 font-inter text-base font-normal uppercase tracking-widest animated-underline hover:bg-transparent focus:bg-transparent focus-visible:ring-0">
+      <NavigationMenuTrigger className="h-auto rounded-none bg-transparent p-0 font-inter text-base  uppercase tracking-widest animated-underline hover:bg-transparent focus:bg-transparent focus-visible:ring-0">
         Shop
       </NavigationMenuTrigger>
       <NavigationMenuContent className="left-10 w-full rounded-[24px] bg-transparent!">

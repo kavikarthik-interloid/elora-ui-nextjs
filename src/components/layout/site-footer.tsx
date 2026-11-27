@@ -14,16 +14,16 @@ export default function SiteFooter() {
         }}
       >
         <div className="flex w-3/4 flex-col gap-5 sm:w-full md:items-center md:justify-center">
-          <span className="font-inter text-sm font-normal uppercase tracking-[0.2em] text-background md:text-lg">
+          <span className="font-inter text-sm  uppercase tracking-[0.2em] text-background md:text-lg">
             Subscription
           </span>
           <span className="w-full font-cormorant text-4xl md:hidden">
             Wellness that adapts with you.
           </span>
-          <h1 className="hidden w-full text-center font-cormorant text-4xl xl:text-[64px] font-normal md:block md:leading-[1.1]">
+          <h1 className="hidden w-full text-center font-cormorant text-4xl xl:text-[64px]  md:block md:leading-[1.1]">
             Your next chapter starts here.
           </h1>
-          <p className="max-w-lg font-inter text-base font-normal text-white/80 md:text-center md:text-base xl:text-[22px] md:leading-[1.7]">
+          <p className="max-w-lg font-inter text-base  text-white/80 md:text-center md:text-base xl:text-[22px] md:leading-[1.7]">
             Personalized wellness support designed for every transition.
           </p>
         </div>

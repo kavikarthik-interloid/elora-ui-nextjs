@@ -11,7 +11,7 @@ import { ScienceFeatureCard } from "./science-feature-card";
 export function ScienceMenu() {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="h-auto rounded-none bg-transparent! p-0 font-inter text-base font-normal uppercase tracking-widest animated-underline hover:bg-transparent! focus:bg-transparent focus-visible:ring-0">
+      <NavigationMenuTrigger className="h-auto rounded-none bg-transparent! p-0 font-inter text-base  uppercase tracking-widest animated-underline hover:bg-transparent! focus:bg-transparent focus-visible:ring-0">
         our science
       </NavigationMenuTrigger>
       <NavigationMenuContent className="left-0 w-full rounded-[24px] bg-transparent">

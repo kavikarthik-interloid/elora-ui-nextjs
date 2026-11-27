@@ -17,7 +17,7 @@ import InstagramIcon from "../../icons/instagram";
 import YoutubeIcon from "../../icons/youtube";
 import FaceBookIcon from "../../icons/facebook";
 import { shopCategories, shopPromo } from "@/data/shop-menu";
-import { scienceLinks } from "@/data/science-menu";
+import { scienceFeature, scienceLinks } from "@/data/science-menu";
 import { journalArticles } from "@/data/journey-menu";
 import { ChevronRight, X } from "lucide-react";
 import { type ImageProps } from "next/image";
@@ -64,6 +64,8 @@ export const navigationItems = [
       title: "Our Science",
       items: toMobileItems(scienceLinks),
       allLink: { href: "/science", label: "Explore All" },
+      promo: scienceFeature,
+      align: true,
     },
   },
   {
@@ -153,11 +155,11 @@ export function MobileNavigation() {
                         onClick={() => setActiveSubmenu(item.submenu)}
                         className="group/button flex cursor-pointer hover:text-primary duration-200 w-full items-center justify-between text-left font-cormorant text-[26px] leading-tight text-white"
                       >
-                        <span className="transition-all duration-500 ease-in-out group-hover/button:ml-2">
+                        <span className="transition-all text-[26px] duration-500 ease-in-out group-hover/button:ml-2">
                           {item.label}
                         </span>
                         <ChevronRight
-                          size={21}
+                          size={18}
                           className="transition-transform duration-300"
                         />
                       </button>
@@ -187,7 +189,7 @@ export function MobileNavigation() {
                 <Button
                   onClick={() => router.push("/login")}
                   variant="fill"
-                  className="flex min-h-10 items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter hover:text-white transition-colors hover:bg-[#C99B42]"
+                  className="flex min-h-10 text-sm items-center justify-center gap-1 rounded-full bg-primary px-5 font-medium font-inter hover:text-white transition-colors hover:bg-primary"
                 />
               }
             >

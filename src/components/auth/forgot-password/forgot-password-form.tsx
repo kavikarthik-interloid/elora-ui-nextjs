@@ -44,7 +44,7 @@ export default function ForgotPasswordForm() {
           </div>
         </form>
         <Link href="/login" className="mt-8 flex items-center cursor-pointer justify-center gap-3">
-          <span className="font-inter flex items-center text-xs xl:text-base font-normal leading-7 tracking-normal text-center text-secondary animated-underline hover:text-primary">
+          <span className="font-inter flex items-center text-xs xl:text-base  leading-7 tracking-normal text-center text-secondary animated-underline hover:text-primary">
             <MoveLeftIcon />Back to Login
           </span>
         </Link>

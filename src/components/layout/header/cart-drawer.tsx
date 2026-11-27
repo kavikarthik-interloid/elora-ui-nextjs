@@ -80,7 +80,7 @@ export default function CartDrawer() {
                   aria-label="Open cart"
                   className="inline-flex items-center justify-center cursor-pointer"
                 >
-                  <CartIcon />
+                  <CartIcon className="hover:text-primary"/>
                 </button>
               }
             />
@@ -164,7 +164,6 @@ export default function CartDrawer() {
                       className="object-cover"
                     />
                   </div>
-
                   <div className="relative min-w-0 flex-1">
                     <button
                       type="button"
